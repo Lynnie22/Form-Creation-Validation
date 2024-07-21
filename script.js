@@ -45,16 +45,27 @@ form.addEventListener('submit', function(event) {
 
    //feedback
 
-   feedbackDiv.style.display = 'block';
+//    feedbackDiv.style.display = 'block';
 
-   if (isValid) {
-    feedbackDiv.textContent = 'Registration Successful!';
-    feedbackDiv.style.color = '#28a745';
-   } else {
-    feedbackDiv.innerHTML = messages.join('<br>');
-    feedbackDiv.style.color ='#dc3545';
-   }
+//    if (isValid) {
+//     feedbackDiv.textContent = 'Registration Successful!';
+//     feedbackDiv.style.color = '#28a745';
+//    } else {
+//     feedbackDiv.innerHTML = messages.join('<br>');
+//     feedbackDiv.style.color ='#dc3545';
+//    }
    
+
+let feedback = document.getElementById('form-feedback');
+
+feedback.style.display = 'block';
+if (isValid) {
+    feedback.textContent = 'Registration Successful!';
+    feedback.style.color = '#28a745';
+}  else {
+    feedback.innerHTML = messages.join('<br>');
+    feedbackDiv.style.color ='#dc3545';
+}
 });
 
 });
