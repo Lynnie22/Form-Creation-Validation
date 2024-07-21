@@ -7,8 +7,8 @@ form.addEventListener('submit', function(event) {
     event.preventDefault();
 
     //validate username
-   const UsernameInput = document.getElementById('username');
-   const username = UsernameInput.value.trim();
+   const usernameInput = document.getElementById('username');
+   const username = usernameInput.value.trim();
 
 
    //validate email
@@ -46,9 +46,10 @@ form.addEventListener('submit', function(event) {
    //feedback
 
    feedbackDiv.style.display = 'block';
+
    if (isValid) {
     feedbackDiv.textContent = 'Registration Successful!';
-    feedbackDiv.style.color = '#28a745'
+    feedbackDiv.style.color = '#28a745';
    } else {
     feedbackDiv.innerHTML = messages.join('<br>');
     feedbackDiv.style.color ='#dc3545';
