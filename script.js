@@ -1,71 +1,120 @@
-document.addEventListener('DOMContentLoaded', function(){
+// document.addEventListener('DOMContentLoaded', function(){
 
-const form = document.getElementById('registration-form');
-const feedbackDiv = document.getElementById('form-feedback');
+// const form = document.getElementById('registration-form');
+// const feedbackDiv = document.getElementById('form-feedback');
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
+// form.addEventListener('submit', function(event) {
+//     event.preventDefault();
 
-    //validate username
-   const usernameInput = document.getElementById('username');
-   const username = usernameInput.value.trim();
-
-
-   //validate email
-   const emailInput = document.getElementById('email');
-   const email = emailInput.value.trim();
+//     //validate username
+//    const usernameInput = document.getElementById('username');
+//    const username = usernameInput.value.trim();
 
 
-   //validate password
-   const passwordInput = document.getElementById('password');
-   const password = passwordInput.value.trim();
+//    //validate email
+//    const emailInput = document.getElementById('email');
+//    const email = emailInput.value.trim();
 
-   //initialize validation variables
-   let isValid = true;
 
-   const messages = [];
+//    //validate password
+//    const passwordInput = document.getElementById('password');
+//    const password = passwordInput.value.trim();
 
-    //username validation
-   if (username.length < 3) {
-    isValid = false;
-    messages.push('Enter a valid username with more than 3 letters');
-   }
+//    //initialize validation variables
+//    let isValid = true;
 
-   //email validation
-   if (!email.includes('@') || !email.includes('.')) {
-    isValid = false;
-    messages.push("email should include both '@' and '.' characters")
-   }
+//    const messages = [];
 
-   //password validation 
-   if (password.length < 8) {
-    isValid = false;
-    messages.push("password must be 8 characters and above")
-   }
-
-   //feedback
-
-//    feedbackDiv.style.display = 'block';
-
-//    if (isValid) {
-//     feedbackDiv.textContent = 'Registration Successful!';
-//     feedbackDiv.style.color = '#28a745';
-//    } else {
-//     feedbackDiv.innerHTML = messages.join('<br>');
-//     feedbackDiv.style.color ='#dc3545';
+//     //username validation
+//    if (username.length < 3) {
+//     isValid = false;
+//     messages.push('Enter a valid username with more than 3 letters');
 //    }
+
+//    //email validation
+//    if (!email.includes('@') || !email.includes('.')) {
+//     isValid = false;
+//     messages.push("email should include both '@' and '.' characters")
+//    }
+
+//    //password validation 
+//    if (password.length < 8) {
+//     isValid = false;
+//     messages.push("password must be 8 characters and above")
+//    }
+
+//    //feedback
+
+// //    feedbackDiv.style.display = 'block';
+
+// //    if (isValid) {
+// //     feedbackDiv.textContent = 'Registration Successful!';
+// //     feedbackDiv.style.color = '#28a745';
+// //    } else {
+// //     feedbackDiv.innerHTML = messages.join('<br>');
+// //     feedbackDiv.style.color ='#dc3545';
+// //    }
    
 
-let feedback = document.getElementById('form-feedback');
+// let feedback = document.getElementById('form-feedback');
 
-feedback.style.display = 'block';
-if (isValid) {
-    feedback.textContent = 'Registration Successful!';
-    feedback.style.color = '#28a745';
-}  else {
-    feedback.innerHTML = messages.join('<br>');
-    feedbackDiv.style.color ='#dc3545';
-}
-});
+// feedback.style.display = 'block';
+// if (isValid) {
+//     feedback.textContent = 'Registration Successful!';
+//     feedback.style.color = '#28a745';
+// }  else {
+//     feedback.innerHTML = messages.join('<br>');
+//     feedbackDiv.style.color ='#dc3545';
+// }
+// });
 
+// });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the form and feedback div elements
+    const form = document.getElementById('registration-form');
+    const feedbackDiv = document.getElementById('form-feedback');
+
+    // Add event listener for form submission
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        // Retrieve and trim the input values
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        // Initialize validation variables
+        let isValid = true;
+        const messages = [];
+
+        // Username validation
+        if (username.length < 3) {
+            isValid = false;
+            messages.push('Username must be at least 3 characters long.');
+        }
+
+        // Email validation
+        if (!email.includes('@') || !email.includes('.')) {
+            isValid = false;
+            messages.push('Please enter a valid email address.');
+        }
+
+        // Password validation
+        if (password.length < 8) {
+            isValid = false;
+            messages.push('Password must be at least 8 characters long.');
+        }
+
+        // Display feedback
+        feedbackDiv.style.display = 'block';
+        if (isValid) {
+            feedbackDiv.textContent = 'Registration successful!';
+            feedbackDiv.style.color = '#28a745';
+        } else {
+            feedbackDiv.innerHTML = messages.join('<br>');
+            feedbackDiv.style.color = '#dc3545';
+        }
+    });
 });
